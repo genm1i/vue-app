@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Трекер привычек</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+    <div class="container">
+        <form onsubmit="submitHandler">
+            <h1>Редактирование привычки</h1>
+            <div>
+                <label for="habit-name">Название привычки</label>
+                <input id="habit-name" required></input></div>
+            <div>
+                <label for="description">Описание привычки</label>
+                <textarea id="description" required></textarea></div>
+            <div>
+                <label for="frequency">Частота выполнеия</label>
+                <select id="frequency">
+                    <option value="1">Каждый день</option>
+                    <option value="7">Раз в неделю</option>
+                    <option value="30">Раз в месяц</option>
+                </select>
+            </div>
+            <div>
+                <label for="count">Количество повторений</label>
+                <input type="count" type="number"></input>
+            </div>
+            <div>Общее количество выполнений <span id="sum"></span></div>
+            <button type="submit">Сохранить</button>
+            <button type="button">простое нажатие</button>
+        </form>
+    </div>
+    <script>
+
+    </script>
 </body>
 </html>
