@@ -46,14 +46,14 @@ descriptionInput.addEventListener('input', descriptionInputHandler);
 frequencySelect.addEventListener('change', frequencyChange);
 countInput.addEventListener('input', countInputHandler);
 
-const formElement = document.querySelector('form');
-formElement.addEventListener('submit', (ev) => {
-    ev.preventDefault();
-    console.log("Отправка формы:");
-    console.log("Название:", name);
-    console.log("Описание:", description);
-    console.log("Частота:", frequency);
-    console.log("Количество:", count);
-    console.log("Итого:", sum);
-    alert(`Сохранено!\nНазвание: ${name}\nОписание: ${description}\nЧастота: ${frequency}\nКоличество: ${count}\nИтого: ${sum}`);
-});
+// const formElement = document.querySelector('form');
+// formElement.addEventListener('submit', (ev) => {
+//     ev.preventDefault();
+//     console.log("Отправка формы:");
+//     console.log("Название:", name);
+//     console.log("Описание:", description);
+//     console.log("Частота:", frequency);
+//     console.log("Количество:", count);
+//     console.log("Итого:", sum);
+//     alert(`Сохранено!\nНазвание: ${name}\nОписание: ${description}\nЧастота: ${frequency}\nКоличество: ${count}\nИтого: ${sum}`);
+// });

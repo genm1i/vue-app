@@ -1,8 +1,8 @@
 :root {
     --layout__bg: #f4f4f9;       
     --card__bg: #fff; 
-    --button__bg: #6c63ff;
-    --button__hover: #574fd1;
+    --button__bg: #b163ff;
+    --button__hover: #834fd1;
 }
 
 body {
