@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <form onsubmit="submitHandler">
+        <form>
             <h1>Редактирование привычки</h1>
             <div>
                 <label for="habit-name">Название привычки</label>
@@ -26,15 +26,13 @@
             </div>
             <div>
                 <label for="count">Количество повторений</label>
-                <input type="count" type="number"></input>
+                <input id="count" type="number"></input>
             </div>
             <div>Общее количество выполнений <span id="sum"></span></div>
             <button type="submit">Сохранить</button>
             <button type="button">простое нажатие</button>
         </form>
     </div>
-    <script>
-
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

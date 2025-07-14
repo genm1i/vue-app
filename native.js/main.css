@@ -1,7 +1,10 @@
 :root {
     --layout__bg: #f4f4f9;       
     --card__bg: #fff; 
+    --button__bg: #6c63ff;
+    --button__hover: #574fd1;
 }
+
 body {
     background-color: rgb(194, 189, 252);
     display: flex;
@@ -9,26 +12,51 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
-.container{
+
+.container {
     background-color: var(--card__bg);
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0 7px 3px gray;
+    min-width: 320px;
+    max-width: 400px;
+    width: 100%;
 }
-.container > form{
+
+.container > form {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-form div input, form div select, form div textarea{
-    width: 100px;
-    border-color: none;
 
+form div input,
+form div select,
+form div textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
 }
-button{
+
+button {
     background-color: var(--button__bg);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button__hover);
 }
