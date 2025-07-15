@@ -1,59 +1,62 @@
 console.log("Скрипт запущен");
 alert("Скрипт запущен");
+const habit={
+    name:'',
+    description:'',
+    frequency:0,
+    count:0,
+    sum:0,
 
-let name = '';
-let description = '';
-let frequency = 0;
-let count = 0;
-let sum = 0;
+}
 
-const nameInput = document.querySelector('#habit-name');
-const descriptionInput = document.querySelector('#description');
-const frequencySelect = document.querySelector('#frequency');
-const countInput = document.querySelector('#count');
-const sumElement = document.querySelector('#sum');
+const nameMeta = {
+    selector: document.querySelector('#habit-name'),
+    handler: (ev) => {
+        habit.name = ev.target.value;
+        console.log("Имя привычки:", habit.name);
+    }
+};
+
+const descriptionMeta = {
+    selector: document.querySelector('#description'),
+    handler: (ev) => {
+        habit.description = ev.target.value;
+        console.log("Описание привычки:", habit.description);
+    }
+};
+
+const frequencyMeta = {
+    selector: document.querySelector('#frequency'),
+    handler: (ev) => {
+        habit.frequency = parseInt(ev.target.value) || 0;
+        setSum();
+        console.log("Частота:", habit.frequency);
+    }
+};
+
+const countMeta = {
+    selector: document.querySelector('#count'),
+    handler: (ev) => {
+        habit.count = parseInt(ev.target.value) || 0;
+        setSum();
+        console.log("Повторений:", habit.count);
+    }
+};
 
 function setSum() {
-    sum = frequency * count;
-    sumElement.textContent = sum;
-    console.log("Обновлена сумма:", sum);
+    habit.sum = habit.frequency * habit.count;
+    document.querySelector('#sum').textContent = habit.sum;
+    console.log("Обновлена сумма:", habit.sum);
 }
 
-function nameInputHandler(ev) {
-    name = ev.target.value;
-    console.log("Имя:", name);
+const metaData = [nameMeta, descriptionMeta, frequencyMeta, countMeta];
+
+for (const { selector, handler } of metaData) {
+    if (!selector) continue; // Пропустить, если элемент не найден
+    const tag = selector.tagName.toLowerCase();
+    if (tag === 'select') {
+        selector.addEventListener('change', handler);
+    } else {
+        selector.addEventListener('input', handler);
+    }
 }
-
-function descriptionInputHandler(ev) {
-    description = ev.target.value;
-    console.log("Описание:", description);
-}
-
-function frequencyChange(ev) {
-    frequency = parseInt(ev.target.value) || 0;
-    console.log("Частота:", frequency);
-    setSum();
-}
-
-function countInputHandler(ev) {
-    count = parseInt(ev.target.value) || 0;
-    console.log("Повторений:", count);
-    setSum();
-}
-
-nameInput.addEventListener('input', nameInputHandler);
-descriptionInput.addEventListener('input', descriptionInputHandler);
-frequencySelect.addEventListener('change', frequencyChange);
-countInput.addEventListener('input', countInputHandler);
-
-// const formElement = document.querySelector('form');
-// formElement.addEventListener('submit', (ev) => {
-//     ev.preventDefault();
-//     console.log("Отправка формы:");
-//     console.log("Название:", name);
-//     console.log("Описание:", description);
-//     console.log("Частота:", frequency);
-//     console.log("Количество:", count);
-//     console.log("Итого:", sum);
-//     alert(`Сохранено!\nНазвание: ${name}\nОписание: ${description}\nЧастота: ${frequency}\nКоличество: ${count}\nИтого: ${sum}`);
-// });
