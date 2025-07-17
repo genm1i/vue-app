@@ -1,25 +1,39 @@
 <script setup>
-import { reactive, computed, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 
-const habit = reactive({
-  name: '',
-  description: '',
-  frequency: 1,
-  count: 0
+const habit = defineModel({
+  default: {
+    name: '',
+    description: '',
+    frequency: 1,
+    count: 0,
+  },
 });
 
-const sum = computed(() => habit.count * habit.frequency);
+const sum = computed(() => {
+  const count = habit.value?.count ?? 0;
+  const frequency = habit.value?.frequency ?? 0;
+  return count * frequency;
+});
 
-const label = ref('');
+const label = computed(() => {
+  const name = habit.value?.name || '';
+  const description = habit.value?.description || '';
+  return `${name} - ${description}`;
+});
+
+// const sum = computed(() => habit.value.count * habit.value.frequency);
+// const label = ref('');
 
 watch(
-  () => ({ name: habit.name, description: habit.description }),
+  () => ({ name: habit.value.name, description: habit.value.description }),
   (newVal) => {
     label.value = `${newVal.name} - ${newVal.description}`;
   },
   { deep: true, immediate: true }
 );
 </script>
+
 
 <template>
   <div class="card">
