@@ -32,6 +32,16 @@ watch(
   },
   { deep: true, immediate: true }
 );
+
+// const postHabit = () =>{
+//   console.log(JSON.stringify(habit.value))
+//   return fetch('/habit, {
+//     method: 'POST',
+//     body: JSON.stringify(habit.value),
+//     header: 'Access-Control_Allow-Origin'
+// })
+//   .catch(error => console.error(error))
+// }
 </script>
 
 

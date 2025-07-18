@@ -5,8 +5,8 @@ import HabitList from './components/HabitList.vue';
 
 const currentHabit = ref({});
 
-const selecthandler = (habit) => {
-  currentHabit.value = { ...habit };
+const selecthandler = (ev) => {
+  currentHabit.value = { ...ev };
 };
 </script>
 

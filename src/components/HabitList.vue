@@ -20,6 +20,22 @@ const newhabitList = reactive([
   }
 ]);
 
+const fetchHabits = async () => {
+  try{
+    const response = fetch('/fetch');
+    const json = await response.json();
+    habitList.length = 0;
+    if(Array.isArray(json)){
+      habitList.push(...json)
+    }{
+      habitList
+    }
+  }
+  catch(err){
+
+  }
+}
+
 const allHabits = reactive([...habitList, ...newhabitList]);
 
 const deleteHandler = (idx) => {
